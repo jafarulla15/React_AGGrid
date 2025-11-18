@@ -7,19 +7,26 @@ import UserForm from "./pages/UserForm";
 import EmployeeList from "./pages/Employee/EmployeeList";
 import EmployeeForm from "./pages/Employee/EmployeeForm";
 
+import TopNav from "./components/TopNav/TopNav";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Layout from "./layout/Layout";
+
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/users" element={<UserList />} />
-        <Route path="/add" element={<UserForm />} />
-        <Route path="/edit/:id" element={<UserForm />} />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/users" element={<UserList />} />
+          <Route path="/add" element={<UserForm />} />
+          <Route path="/edit/:id" element={<UserForm />} />
 
-        <Route path="/employees" element={<EmployeeList />} />
-        <Route path="/employees/add" element={<EmployeeForm />} />
-        <Route path="/employees/edit/:id" element={<EmployeeForm />} />
-      </Routes>
+          <Route path="/employees" element={<EmployeeList />} />
+          <Route path="/employees/add" element={<EmployeeForm />} />
+          <Route path="/employees/edit/:id" element={<EmployeeForm />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 }

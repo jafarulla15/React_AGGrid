@@ -1,0 +1,81 @@
+.topnav {
+  height: 60px;
+  background: #1e293b;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+}
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+}
+
+.login-btn {
+  padding: 6px 14px;
+  background: #3b82f6;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.login-btn:hover {
+  background: #2563eb;
+}
+
+.avatar-wrapper {
+  position: relative;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.dropdown {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  width: 150px;
+  background: white;
+  border-radius: 8px;
+  color: black;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: none;
+  overflow: hidden;
+}
+
+.dropdown.show {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #f1f5f9;
+}
