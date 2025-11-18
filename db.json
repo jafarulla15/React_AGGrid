@@ -30,8 +30,8 @@
       "department": "Admin",
       "position": "Manager",
       "salary": 132250,
-      "isActive": false,
-      "joinDate": "2024-02-21",
+      "isActive": true,
+      "joinDate": "2024-02-22",
       "updatedAt": "2024-10-19",
       "address": "zUfLCzLkRSIL",
       "postalCode": 5910,
@@ -16018,7 +16018,6 @@
       "project": "Accounting"
     }
   ],
-
   "auth": {
     "username": "admin",
     "password": "123456"

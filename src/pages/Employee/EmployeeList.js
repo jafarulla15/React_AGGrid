@@ -256,9 +256,54 @@ export default function EmployeeList() {
     []
   );
 
+  // const onGridReady = (params) => {
+  //   // register datasource
+  //   const ds = datasource();
+  //   params.api.setDatasource(ds);
+  // };
+
+  // const onGridReady = (params) => {
+  //   const ds = {
+  //     getRows: (request) => {
+  //       const q = makeQueryFromRequest(request.request); // <-- request.request is correct
+  //       fetch(`${API_BASE}/employees?${q}`)
+  //         .then((r) => r.json())
+  //         .then((data) => {
+  //           const total = Number(r.headers.get("x-total-count") || data.length);
+  //           request.successCallback(data, total);
+  //         })
+  //         .catch(() => request.failCallback());
+  //     },
+  //   };
+  //   params.api.setDatasource(ds);
+  // };
+
   const onGridReady = (params) => {
-    // register datasource
-    const ds = datasource();
+    const ds = {
+      getRows: (gridParams) => {
+        const q = makeQueryFromRequest({
+          startRow: gridParams.startRow,
+          endRow: gridParams.endRow,
+          filterModel: gridParams.filterModel,
+          sortModel: gridParams.sortModel,
+        });
+
+        const url = `${API_BASE}/employees?${q}`;
+
+        fetch(url)
+          .then(async (res) => {
+            const data = await res.json();
+            const total = parseInt(
+              res.headers.get("x-total-count") || data.length,
+              10
+            );
+
+            gridParams.successCallback(data, total);
+          })
+          .catch(() => gridParams.failCallback());
+      },
+    };
+
     params.api.setDatasource(ds);
   };
 
